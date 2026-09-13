@@ -18,8 +18,8 @@ detect_indent_width=true
 indent_mode=1
 
 [project]
-name=lesson0
-base_path=/home/bot25/C++/ITSTEP/lesson0
+name=ITSTEP
+base_path=/home/bot25/C++/ITSTEP
 description=
 
 [long line marker]
@@ -28,7 +28,7 @@ long_line_column=72
 
 [files]
 current_page=0
-FILE_NAME_0=31;C++;0;EUTF-8;1;1;0;%2Fhome%2Fbot25%2FC%2B%2B%2FITSTEP%2Flesson0%2Fintrotocpp.cpp;0;4
+FILE_NAME_0=0;C++;0;EUTF-8;1;1;0;%2Fhome%2Fbot25%2FC%2B%2B%2FITSTEP%2Flesson0%2Fintrotocpp.cpp;0;4
 
 [VTE]
-last_dir=/home/bot25/C++/ITSTEP/lesson0
+last_dir=/home/bot25
