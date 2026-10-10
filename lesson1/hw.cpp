@@ -112,7 +112,7 @@ int main(){
 			
 			int remaining_time_s = 8*3600 - elapsed_time_s;
 			if(remaining_time_s > 0){
-				int remaining_time_h = remaining_time_s / 3600;
+				int remaining_time_h = remaining_time_s / 3600; 
 				std::cout << "Remaining time: " << remaining_time_h << " hours\n";
 			}else{
 				std::cout << "Bro, go home\n"; 
