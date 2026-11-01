@@ -39,21 +39,34 @@ int main(){
 			break;
 		}
 		case 2:{
-			int rows = 3;
-			int cols = 4;
+			const int rows = 3;
+			const int cols = 4;
 			int arr[rows][cols]{
 				{3,5,6,7},
 				{12,1,1,1},
 				{0,7,12,1}
 			};
+			int total_sum = 0;
 			for(int row = 0; row < rows; row++){
 				int row_sum = 0;
 				for(int col = 0; col < cols; col++){
-					std::cout << arr[row][col] << " ";
+					std::cout << arr[row][col] << ' ';
+					if(arr[row][col] < 10) std::cout << ' '; //чтобы выравнивать пробелы в числах из одной цифры
 					row_sum += arr[row][col];
+					total_sum += arr[row][col];
 				}
 				std::cout << "| " << row_sum << '\n';
 			}
+			std::cout << "---------------\n";
+			for(int col = 0; col < cols; col++){
+				int col_sum = 0;
+				for(int row = 0; row < rows; row++){
+					col_sum += arr[row][col];
+				}
+				std::cout << col_sum << ' ';
+				if(col_sum < 10) std::cout << ' '; //тоже
+			}
+			std::cout << "| " << total_sum;
 		}
 	}
 }
