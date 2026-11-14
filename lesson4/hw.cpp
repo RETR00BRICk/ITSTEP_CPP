@@ -45,7 +45,7 @@ int main(){
 				start = end;
 				end = temp;
 			}
-			int max_i = start, min_i = start;
+			int max_i = start-1, min_i = start-1;
 			for(int i = start-1; i <= end-1; i++){
 				if(incomes[i] > incomes[max_i]) max_i = i;
 				if(incomes[i] < incomes[min_i]) min_i = i;
@@ -94,6 +94,30 @@ int main(){
 			std::cout << "\nProduct of elements between min and max: " << product_minmax;
 			std::cout << "\nProduct of elements with even indexes: " << product_even;
 			std::cout << "\nSum of elements between first and last negatives: " << sum_firstlast_negative;
+			break;
+		}
+		case 4:{
+			int big_arr[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+			int arr_1[5] = {};
+			int arr_2[5] = {};
+			for(int i = 0; i < 10; i++){
+				if(i < 5) arr_1[i] = big_arr[i];
+				else arr_2[i-5] = big_arr[i];
+			}
+			std::cout << "Array 1: ";
+			for(int i = 0; i < 5; i++) std::cout << arr_1[i] << ' ';
+			std::cout << "\nArray 2: ";
+			for(int i = 0; i < 5; i++) std::cout << arr_2[i] << ' ';
+			break;
+		}
+		case 5:{
+			int arr_1[5] = {3, 5, 10, 2, -5}; 
+			int arr_2[5] = {91, 9, 6, 1, 52};
+			int res_arr[5];
+			for(int i = 0; i < 5; i ++){
+				res_arr[i] = arr_1[i] + arr_2[i];
+				std::cout << res_arr[i] << ' ';
+			}
 			break;
 		}
 	}
