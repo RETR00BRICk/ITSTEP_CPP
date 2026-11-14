@@ -56,29 +56,45 @@ int main(){
 		}
 		case 3:{
 			const int size = 10;
-			float arr[size]{3.03, 0.1, -10.9, 55.4, 2.1, 10.01, 7.3, 4.2, 12.3, -5.7};
+			float arr[size]{-2.5, 1.5, 12.4, 2.0, -1.2, 3.5, 0.5, -8.6, 4.0, -1.0};
 			
 			int min_i = 0, max_i = 0;
+			float product_even = 1.0f;
+			float sum_negative = 0.0f;
+			int first_negative_i = -1;
+			int last_negative_i = -1;
 			for(int i = 0; i < size; i++){
 				if(arr[i] > arr[max_i]) max_i = i;
 				if(arr[i] < arr[min_i]) min_i = i;
+				if(i%2 == 0) product_even *= arr[i];
+				if(arr[i] < 0.0f){
+					sum_negative += arr[i];
+					if(first_negative_i == -1) first_negative_i = i;
+					last_negative_i = i;
+				} 
 			}
 			float product_minmax = 1.0f;
-			if(max_i > min_i){
-				for(int i = min_i+1; i < max_i; i ++){
-					product *= arr[i];
-				}
-			}else{
-				for(int i = max_i+1; i < min_i; i ++){
-					product *= arr[i];
-				}
+			float sum_firstlast_negative = 0.0f;
+			if(min_i > max_i){
+				int temp = min_i;
+				min_i = max_i;
+				max_i = temp;
 			}
-			float product_even = 1.0f;
-			float negative_sum = 0.0f;
+			if(max_i - min_i < 2) product_minmax = 0.0f; 
 			for(int i = 0; i < size; i++){
-				if(i%2 == 0.0f) product_even *= arr[i];
-				if(arr[i] < 0.0f) negative_sum += arr[i];
+				if(i > min_i && i < max_i) product_minmax *= arr[i];
+				if(i > first_negative_i && i < last_negative_i) sum_firstlast_negative += arr[i];
 			}
+			std::cout << "ARRAY: ";
+			for(int i = 0; i < size; i++){
+				std::cout << arr[i] << ' ';
+			}
+			std::cout << "\n---------\n";
+			std::cout << "Sum of negative elements: " << sum_negative;
+			std::cout << "\nProduct of elements between min and max: " << product_minmax;
+			std::cout << "\nProduct of elements with even indexes: " << product_even;
+			std::cout << "\nSum of elements between first and last negatives: " << sum_firstlast_negative;
+			break;
 		}
 	}
 }
