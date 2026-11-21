@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+
 int main(){
 	std::cout << "Choose task(1-3): ";
 	int task;
@@ -67,6 +70,29 @@ int main(){
 				if(col_sum < 10) std::cout << ' '; //тоже
 			}
 			std::cout << "| " << total_sum;
+			break;
+		}
+		case 3:{
+			srand(time(0));
+			int arr1[5][10]={};
+			int arr2[5][5]={};
+			std::cout << "First array: \n";
+			for(int i = 0; i < 5; i ++){
+				for(int j = 0; j < 10; j++){
+					arr1[i][j] = rand()%51;
+					std::cout << arr1[i][j] << ' ';					
+				}
+				std::cout << '\n';
+			}
+			std::cout << "\n\nSecond array: \n";
+			for(int i = 0; i < 5; i ++){
+				for(int j = 0; j < 5; j++){
+					arr2[i][j] = arr1[i][j*2 + 1] + arr1[i][j*2];
+					std::cout << arr2[i][j] << ' ';
+				}
+				std::cout << '\n';
+			}
+			break;
 		}
 	}
 }
